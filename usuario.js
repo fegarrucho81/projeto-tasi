@@ -1,0 +1,1 @@
+console.log("Arquivo usuario.js rodando com sucesso!");
