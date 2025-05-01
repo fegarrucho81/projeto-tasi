@@ -14,13 +14,12 @@ O sistema permite que **funcionários de uma loja** possam gerenciar o **estoque
 ## Tecnologias Utilizadas
 
 - **JavaScript (Node.js)**
-- **Git/GitHub** para versionamento.
 
 ## Como rodar o projeto
 
 ### Pré-requisitos
 
-- Ter o **Node.js** instalado. Você pode verificar se está instalado com:
+- Ter o **Node.js** instalado. Verifique se está instalado com:
 
   ```bash
   node -v
