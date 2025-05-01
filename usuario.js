@@ -19,7 +19,7 @@ class Usuario {
             senha
         }
 
-        this.push.usuarios(novoUsuario); // Colocando novo usuário no Array
+        this.usuarios.push(novoUsuario); // Colocando novo usuário no Array
         return "Usuário cadastrado com sucesso!";
 
     }
@@ -38,3 +38,5 @@ class Usuario {
 
     }
 }
+
+module.exports = Usuario;
