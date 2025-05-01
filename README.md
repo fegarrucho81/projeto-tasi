@@ -1,25 +1,25 @@
-# Projeto de CRUD de Estoque
+# Stock Management CRUD Project
 
-Este projeto é um sistema **CRUD (Create, Read, Update, Delete)** desenvolvido em **JavaScript**, rodando no **terminal** com **Node.js**.
+This project is a **CRUD (Create, Read, Update, Delete)** system developed in **JavaScript**, running in the **terminal** with **Node.js**.
 
-## Objetivo
+## Objective
 
-O sistema permite que **funcionários de uma loja** possam gerenciar o **estoque de produtos**. Através de um simples menu no terminal, os usuários podem:
+The system allows **store employees** to manage the **product stock**. Through a simple terminal menu, users can:
 
-- Adicionar novos produtos ao estoque
-- Visualizar produtos existentes
-- Atualizar informações de produtos
-- Remover produtos do estoque
+- Add new products to the stock
+- View existing products
+- Update product information
+- Remove products from the stock
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - **JavaScript (Node.js)**
 
-## Como rodar o projeto
+## How to Run the Project
 
-### Pré-requisitos
+### Prerequisites
 
-- Ter o **Node.js** instalado. Verifique se está instalado com:
+- Make sure **Node.js** is installed. Check if it is installed with:
 
   ```bash
   node -v
