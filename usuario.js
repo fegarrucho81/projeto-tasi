@@ -34,9 +34,24 @@ class Usuario {
         if (usuario.senha !== senha)
             return "Senha incorreta!"
 
-        return "Bem-vindo, ${usuario.nome}!"
+        return `Bem-vindo, ${usuario.nome}!`
 
     }
+
+    excluirUsuario(email) {
+        if (!email || !email.includes('@'))     
+            return "E-mail inválido!";
+    
+        const index = this.usuarios.findIndex(usuario => usuario.email === email);
+    
+        if (index !== -1) {
+            this.usuarios.splice(index, 1); // Remove o usuário do array
+            return `Usuário ${email} excluído com sucesso!`;
+        } else {
+            return `Usuário ${email} não encontrado!`;
+        }
+    }
+    
 }
 
 module.exports = Usuario;
