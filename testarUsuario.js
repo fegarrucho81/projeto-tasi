@@ -1,11 +1,24 @@
-const Usuario = require('./usuario'); // Importando a classe
+// Arquivo de testes manuais. Não tem utilidade por ora, só se precisar de algum teste pontual futuro.
 
-const sistemaUsuarios = new Usuario(); // Instanciando a classe
+/*
+const Usuario = require('./usuario');
 
-console.log(sistemaUsuarios.cadastrarUsuario("Felipe","felipe@gmail.com", "123456")); // Deve retornar que ocorreu com sucesso
+const sistemaUsuarios = new Usuario();
 
-console.log(sistemaUsuarios.cadastrarUsuario("João","felipe@gmail.com", "123456")); // Deve retornar que já existe esse email
+console.log(sistemaUsuarios.cadastrarUsuario("Felipe","felipe@gmail.com", "123456"));
+console.log(sistemaUsuarios.cadastrarUsuario("João","felipe@gmail.com", "123456"));
 
-console.log(sistemaUsuarios.loginUsuario("felipe@email.com", "senha123")); // "Bem-vindo, Felipe!"
-console.log(sistemaUsuarios.loginUsuario("felipe@email.com", "senhaErrada")); // "Senha incorreta!"
-console.log(sistemaUsuarios.loginUsuario("naoexiste@email.com", "senha123")); // "Usuário não encontrado!"
+console.log(sistemaUsuarios.loginUsuario("felipe@gmail.com", "123456")); 
+console.log(sistemaUsuarios.loginUsuario("felipe@gmail.com", "senhaErrada"));
+console.log(sistemaUsuarios.loginUsuario("naoexiste@email.com", "senha123"));
+
+console.log("----------------------")
+
+// Testar excluir
+console.log("Usuários atuais:", sistemaUsuarios.usuarios);
+
+console.log(sistemaUsuarios.excluirUsuario("felipe@gmail.com"));
+console.log(sistemaUsuarios.excluirUsuario("naoexiste@email.com"));
+
+console.log("Usuários após exclusão:", sistemaUsuarios.usuarios);
+*/
