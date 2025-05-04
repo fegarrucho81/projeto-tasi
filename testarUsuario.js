@@ -1,3 +1,6 @@
+// Arquivo de testes manuais. Não tem utilidade por ora, só se precisar de algum teste pontual futuro.
+
+/*
 const Usuario = require('./usuario');
 
 const sistemaUsuarios = new Usuario();
@@ -18,3 +21,4 @@ console.log(sistemaUsuarios.excluirUsuario("felipe@gmail.com"));
 console.log(sistemaUsuarios.excluirUsuario("naoexiste@email.com"));
 
 console.log("Usuários após exclusão:", sistemaUsuarios.usuarios);
+*/
