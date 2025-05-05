@@ -1,8 +1,27 @@
+const fs = require('fs');
+const path = require('path');
+const PRODUTO_PATH = path.join(__dirname, 'produtos.json');
+
+
 class Produto {
     constructor(rl) {
         this.rl = rl;
-        this.produtos = []; // Array de Produtos
+        this.produtos = this.lerProdutos();
     }
+
+    lerProdutos() {
+        try {
+            const data = fs.readFileSync(PRODUTO_PATH, 'utf-8');
+            return JSON.parse(data);
+        } catch (err) {
+            return [];
+        }
+    }
+    
+    salvarProdutos() {
+        fs.writeFileSync(PRODUTO_PATH, JSON.stringify(this.produtos, null, 2));
+    }
+    
 
     cadastrarProduto(callback) {
         this.rl.question('Digite o nome do produto: ', (nome_produto) => {
@@ -25,6 +44,7 @@ class Produto {
                 };
 
                 this.produtos.push(novo_produto);
+                this.salvarProdutos();
                 console.log(`Produto adicionado: Nome: ${nome_produto} - Quantidade: ${quantidade}`);
                 console.log('Estoque atual:', this.produtos);
                 callback(); // Retorna ao menu após adicionar o produto
@@ -45,6 +65,7 @@ class Produto {
             }
 
             const removido = this.produtos.splice(index, 1)[0];
+            this.salvarProdutos();
             console.log(`Produto removido: ${removido.nome_produto}`);
             callback(); // Retorna ao menu após remover o produto
         });
@@ -72,6 +93,7 @@ class Produto {
                         if (opcoes_menu === 0) {
                             this.rl.question('Digite o novo nome do produto: ', (novo_nome) => {
                                 produto.nome_produto = novo_nome;
+                                this.salvarProdutos();
                                 console.log('Nome alterado com sucesso.');
                                 menuEdicao(); // Repete o menu após a alteração
                             });
@@ -80,6 +102,7 @@ class Produto {
                                 const quantidade = parseInt(nova_quantidade);
                                 if (quantidade >= 0) {
                                     produto.quantidade = quantidade;
+                                    this.salvarProdutos();
                                     console.log('Quantidade alterada com sucesso.');
                                     menuEdicao(); // Repete o menu após a alteração
                                 } else {

@@ -1,10 +1,27 @@
+const fs = require('fs');
+const path = require('path');
+const USUARIO_PATH = path.join(__dirname, 'usuario.json');
+
+
 class Usuario {
     constructor(rl) {
         this.rl = rl;
-        this.usuarios = [
-            { nome: 'Administrador', email: 'adm@adm.com', senha: '123' }
-        ]; // Usuário admin padrão
+        this.usuarios = this.lerUsuarios();
     }
+
+    lerUsuarios() {
+        try {
+            const data = fs.readFileSync(USUARIO_PATH, 'utf-8');
+            return JSON.parse(data);
+        } catch (err) {
+            return [];
+        }
+    }
+    
+    salvarUsuarios() {
+        fs.writeFileSync(USUARIO_PATH, JSON.stringify(this.usuarios, null, 2));
+    }
+    
 
     cadastrarUsuario(callback) {
         this.rl.question('Nome do Usuário: ', (nome) => {
@@ -18,6 +35,7 @@ class Usuario {
                 this.rl.question('Senha: ', (senha) => {
                     const novoUsuario = { nome, email, senha };
                     this.usuarios.push(novoUsuario);
+                    this.salvarUsuarios();
                     console.log("Usuário cadastrado com sucesso!\n");
                     callback(true); // Cadastro bem-sucedido
                 });
@@ -56,6 +74,7 @@ class Usuario {
 
             if (index !== -1) {
                 this.usuarios.splice(index, 1);
+                this.salvarUsuarios();
                 console.log(`Usuário ${email} excluído com sucesso!`);
             } else {
                 console.log(`Usuário ${email} não encontrado!`);
